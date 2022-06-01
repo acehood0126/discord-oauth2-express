@@ -5,10 +5,10 @@ const router = Router();
 
 const CLIENT_ID = process.env.CLIENT_ID as string;
 const CLIENT_SECRET = process.env.CLIENT_SECRET as string;
-const REDIRECT_URI = "http:\/\/localhost:5000\/api\/discord\/auth-callback";
+const REDIRECT_URI = "http://localhost:5000/api/discord/auth-callback";
 const RESPONSE_TYPE = "code";
 const SCOPE = "identify+email+guilds+guilds.members.read";
-const GUILD_ID = "0112345646876";
+const GUILD_ID = "374620978577408000";
 
 router.get("/auth", (request: Request, response: Response) => {
   response.redirect(
@@ -44,11 +44,11 @@ router.get("/auth-callback", async (req: Request, res: Response) => {
     //   headers: {
     //     Authorization: `Bearer ${token}`,
     //   },
-    // });
-    return res.send(userRes.data);
+    // });userRes.data
+    res.redirect(`http://localhost:3000/login/wonderful/0215456/3`);
     // return res.send({ userdata: userRes.data, guild: guild.data });
   } catch (err: any) {
-    return res.send(err.response.data);
+    //return res.send(err.response.data);
   }
 });
 

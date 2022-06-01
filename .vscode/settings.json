@@ -8,6 +8,7 @@
     "prebuild",
     "prestart",
     "respawn",
+    "userdata",
     "walletadddress"
   ]
 }

@@ -7,7 +7,7 @@ const CLIENT_ID = process.env.CLIENT_ID as string;
 const CLIENT_SECRET = process.env.CLIENT_SECRET as string;
 const REDIRECT_URI = "http:\/\/localhost:5000\/api\/discord\/auth-callback";
 const RESPONSE_TYPE = "code";
-const SCOPE = "identify email guilds guilds.members.read";
+const SCOPE = "identify+email+guilds+guilds.members.read";
 
 router.get("/auth", (request: Request, response: Response) => {
   response.redirect(

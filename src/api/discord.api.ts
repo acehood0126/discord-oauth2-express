@@ -8,6 +8,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET as string;
 const REDIRECT_URI = "http:\/\/localhost:5000\/api\/discord\/auth-callback";
 const RESPONSE_TYPE = "code";
 const SCOPE = "identify+email+guilds+guilds.members.read";
+const GUILD_ID = "0112345646876";
 
 router.get("/auth", (request: Request, response: Response) => {
   response.redirect(
@@ -39,7 +40,13 @@ router.get("/auth-callback", async (req: Request, res: Response) => {
         Authorization: `Bearer ${token}`,
       },
     });
+    // const guild = await axios.get(`/users/@me/guilds/${GUILD_ID}/member`,{
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // });
     return res.send(userRes.data);
+    // return res.send({ userdata: userRes.data, guild: guild.data });
   } catch (err: any) {
     return res.send(err.response.data);
   }
